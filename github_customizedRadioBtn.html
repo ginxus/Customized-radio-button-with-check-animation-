@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo-customized radio button</title>
+	<style>
+		
+		*{
+			margin: 0;
+			padding: 0;
+		}
+
+		form{
+			width: 600px;
+			margin: auto;
+			border: 1px solid #111;
+			padding: 10px;
+			text-align: center;
+		}
+
+		.desc{padding: 10px 0;}
+
+		/* Replacing the original one by using a span element */
+
+		.radioBtn{
+			padding: 8px;
+			display: inline-block;
+			border: 1px solid #111;
+			vertical-align: middle;
+			position: relative;
+		}
+
+		.radioBtn:before{
+			content: '';
+			display: block;
+			position: absolute;
+			top: -3px;
+			left: 0;
+			padding: 5px 8px;
+			border-left:0px solid #3d91d8;
+			border-bottom: 0px solid #3d91d8;
+			border-radius: 3px;
+			transform: rotate(-45deg);
+		}
+
+		.typeRadio:checked + label .radioBtn:before{
+			border-left:3px solid #3d91d8;
+			border-bottom: 3px solid #3d91d8;
+			transition: border-left .4s 0s, 
+						border-bottom .4s .4s;
+		}
+
+		/* Hide the original radio btn */
+
+		.typeRadio{display: none;}
+
+
+	</style>
+</head>
+<body>
+	
+	
+	<form action="#" method="get">
+
+		<div class="question">
+
+			<p class="desc">Do you like to drink coke?</p>
+
+			<input type="radio" name="radio" id="typeTrue" value="true" class="typeRadio">
+			<label for="typeTrue">
+				<span class="radioBtn"></span>
+				<span>Yes</span>
+			</label>
+
+			<input type="radio" name="radio" id="typeFalse" value="false" class="typeRadio">
+			<label for="typeFalse">
+				<span class="radioBtn"></span>
+				<span>No</span>
+			</label>
+			
+		</div>
+		
+	</form>
+
+
+</body>
+</html>
